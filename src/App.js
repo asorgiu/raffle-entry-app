@@ -1,24 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './Navbar';
+import Home from './Home';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Create from './Create';
+import EntryDetails from './EntryDetails';
+import NotFound from './404';
+import About from './About';
+import YouTubeCounter from './components/YouTube/YouTubeCounter';
+import YouTubeLogin from './components/YouTube/YouTubeLogin';
+import YouTubeSubscribe from './components/YouTube/YouTubeSubscribe';
+import Subscribe from './components/YouTube/Subscribe';
+import { createBrowserHistory } from 'history';
+export const history = createBrowserHistory();
 
+// surround app with router so all child components can use it
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router history={history}>
+      <div className="App">
+        <Navbar />
+        <div className="content">
+          <Switch>
+            <Route exact path="/">
+              <YouTubeCounter />
+              <Home />
+            </Route>
+            <Route exact path="/create">
+              <Create />
+            </Route>
+            <Route path="/entries/:id">
+              <EntryDetails />
+            </Route>
+            <Route path="/youtube">
+              <YouTubeLogin />
+              {/* <YouTubeSubscribe
+                channelId={process.env.REACT_APP_YOUTUBE_CHANNEL_ID}
+                theme={'default'}
+                layout={'full'}
+                count={'default'}
+              /> */}
+            </Route>
+            <Route path="/subscribe">
+              <Subscribe />
+            </Route>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="*">
+              <NotFound />
+            </Route>
+          </Switch>
+        </div>
+      </div>
+    </Router>
   );
 }
 
