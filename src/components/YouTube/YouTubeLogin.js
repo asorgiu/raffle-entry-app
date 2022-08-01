@@ -54,26 +54,6 @@ class YouTubeLogin extends Component {
         );
       }
     });
-    // return gapi.client.youtube.subscriptions
-    //   .insert({
-    //     part: 'snippet',
-    //     resource: {
-    //       snippet: {
-    //         resourceId: {
-    //           kind: 'youtube#channel',
-    //           channelId: process.env.REACT_APP_YOUTUBE_CHANNEL_ID,
-    //         },
-    //       },
-    //     },
-    //   })
-    //   .then(
-    //     function (response) {
-    //       console.log(response);
-    //     },
-    //     function (err) {
-    //       console.log(err);
-    //     }
-    //   );
   };
 
   componentDidMount() {
