@@ -18,7 +18,7 @@ class YouTubeLogin extends Component {
           this.setState({ loggedIn: true });
         },
         function (err) {
-          console.log('Error signing in: ' + err);
+          console.log('Error signing in: ' + JSON.stringify(err));
         }
       );
   };
