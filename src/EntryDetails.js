@@ -7,11 +7,11 @@ const EntryDetails = () => {
     data: entry,
     error,
     isPending,
-  } = useFetch('http://helpmediy.org:3001/api/entries/' + id);
+  } = useFetch('https://helpmediy.org:3001/api/entries/' + id);
   const history = useHistory();
 
   const handleClick = () => {
-    fetch('http://helpmediy.org:3001/api/entries/' + entry._id, {
+    fetch('https://helpmediy.org:3001/api/entries/' + entry._id, {
       method: 'DELETE',
     }).then(() => {
       history.push('/'); // redirect to home page after deleting

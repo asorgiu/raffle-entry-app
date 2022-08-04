@@ -6,7 +6,7 @@ const Home = () => {
     data: entries,
     isPending,
     error,
-  } = useFetch('http://helpmediy.org:3001/api/entries');
+  } = useFetch('https://helpmediy.org:3001/api/entries');
 
   // render this conditionally on entries being set via fetch
   return (
