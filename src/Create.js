@@ -15,7 +15,7 @@ const Create = () => {
 
     setIsPending(true);
 
-    fetch('https://helpmediy.org:3001/api/entries', {
+    fetch('http://helpmediy.org:3001/api/entries', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(entry),
